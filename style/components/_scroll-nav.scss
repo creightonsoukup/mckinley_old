@@ -1,0 +1,120 @@
+
+.scroll-nav {
+  nav {
+    z-index: 100000;
+    background-color:  white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $tan;
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.2);
+    height: 55px;
+  }
+  .nav-links-left {
+    visibility: collapse;
+  }
+  .nav-links {
+    visibility: collapse;
+  }
+  .mobile  {
+    visibility: visible;
+  }
+  .bars {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    font-size: 24px;
+  }
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $red-brown;
+    padding: 15px;
+    font-size: 24px;
+    font-family: $logo-text;
+    letter-spacing: 2px;
+    transition: font-size 1s ease;
+    text-shadow: 1px 1px 3px rgba(170, 170, 170, 0.6);
+  }
+}
+
+@media (min-width: 768px) {
+  .scroll-nav {
+    nav {
+      z-index: 100000;
+      background-color:  $tan;
+      position: fixed;
+      top: 0;
+      height:60px;
+      box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.2);
+    }
+    .mobile  {
+      visibility: collapse;
+    }
+    .nav-items {
+      h1 {
+        font-family: $logo-text;
+        font-size: 3.5vw;
+        color: $red-brown;
+        text-align: center;
+        padding: 12px;
+        letter-spacing: 5px;
+        position: relative;
+      }
+      a {
+        text-decoration: none;
+      }
+      .nav-links {
+        visibility: visible;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        min-width: 120px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 2vw;
+        font-family: $header-text;
+        padding-top: 20px;
+        h6 {
+          display: inline-block;
+          font-size: 11px;
+        }
+        a {
+          color: $red-brown;
+          font-size: 2vw;
+          i {
+            font-size: 2vw;
+          }
+        }
+        .fa-shopping-cart {
+          padding-bottom: 3px;
+        }
+      }
+      .nav-links-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: absolute;
+        visibility: visible;
+        left: 0;
+        top: 0;
+        font-size: 16px;
+        font-family: $header-text;
+        padding: 1.5vw;
+        padding-top: 25px;
+        a {
+          color: $red-brown;
+          font-size: 16px;
+          padding-right: 3vw;
+          i {
+            font-size: 2vw;
+          }
+        }
+      }
+    }
+
+  }
+}

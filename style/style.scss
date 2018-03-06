@@ -1,0 +1,174 @@
+@import 'reset';
+@import 'font';
+@import 'colors';
+@import '../../node_modules/animate.css/animate.css';
+@import './components/collection_list';
+@import './components/homepage_loader';
+@import './components/navbar';
+@import './components/banner_image';
+@import './components/homepage_video';
+@import './components/slider';
+@import './components/collection';
+@import './components/footer';
+@import './components/product';
+@import './components/scroll-nav';
+@import './components/single-product';
+@import './components/all-products';
+@import './components/customize';
+@import './components/special-order';
+@import './components/charity';
+@import './components/team';
+@import './components/contact';
+@import './components/about';
+@import './components/menu-cart';
+@import './components/starling';
+
+body {
+  cursor: default;
+}
+
+@media handheld {
+  video::-webkit-media-controls {
+    display: none;
+  }
+}
+
+.terms {
+  font-family: $body-text;
+  padding: 20px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+  h1 {
+    font-size: 20px;
+    color: $red-brown;
+    padding-bottom: 30px;
+    font-family: $header-text;
+  }
+  h2 {
+    font-size: 16px;
+    color: $brown;
+    padding-bottom: 20px;
+    font-family: $header-text;
+  }
+  p {
+    font-size: 12px;
+    color: black;
+    padding-bottom: 10px;
+  }
+}
+
+.privacy {
+  font-family: $body-text;
+  padding: 20px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+  h1 {
+    font-size: 20px;
+    color: $red-brown;
+    padding-bottom: 30px;
+    font-family: $header-text;
+  }
+  h2 {
+    font-size: 16px;
+    color: $brown;
+    padding-bottom: 20px;
+    font-family: $header-text;
+  }
+  p {
+    font-size: 12px;
+    color: black;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .terms {
+    font-family: $body-text;
+    padding: 200px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+    h1 {
+      font-size: 20px;
+      color: $red-brown;
+      padding-bottom: 30px;
+      font-family: $header-text;
+    }
+    h2 {
+      font-size: 16px;
+      color: $brown;
+      padding-bottom: 20px;
+      font-family: $header-text;
+    }
+    p {
+      font-size: 12px;
+      color: black;
+      padding-bottom: 10px;
+    }
+  }
+
+  .privacy {
+    font-family: $body-text;
+    padding: 200px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+    h1 {
+      font-size: 20px;
+      color: $red-brown;
+      padding-bottom: 30px;
+      font-family: $header-text;
+    }
+    h2 {
+      font-size: 16px;
+      color: $brown;
+      padding-bottom: 20px;
+      font-family: $header-text;
+    }
+    p {
+      font-size: 12px;
+      color: black;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.blog-banner {
+  width: 100vw;
+  height: 60vh;
+  margin-top: 30px;
+  background: url('https://s3-us-west-1.amazonaws.com/madison-mckinley/banner-images/blog.png')
+    center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 100;
+}
+
+.blog-frame {
+  min-height: 12500px;
+  iframe {
+    min-height: 12500px;
+    margin-top: 40vh;
+  }
+}
+
+.mobile-title {
+  text-align: center;
+  color: $brown;
+  padding-top: 70px;
+  font-size: 20px;
+  font-family: $header-text;
+}
+
+.homepage-iframe {
+  iframe {
+    margin-top: 10px;
+  }
+}
