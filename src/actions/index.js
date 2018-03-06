@@ -38,6 +38,7 @@ export const TEAM = 'team'
 export const CONATACT_REQUEST = 'contact_request'
 export const FETCH_BLOG_POSTS = 'fetch_blog_posts'
 export const ADD_PRODUCTS_TO_CART = 'add_products_to_cart'
+export const SALE = 'sale'
 
 
 const DATABASE_URL = 'https://shrouded-reaches-99139.herokuapp.com'
@@ -161,6 +162,16 @@ const request = shopClient.fetchQueryProducts({collection_id: '419001156',sort_b
 
   return {
     type: STEERHEAD_RANCH_COLLECTION,
+    payload: request
+  }
+}
+
+export function fetchSale() {
+
+const request = shopClient.fetchQueryProducts({collection_id: '29240426528',sort_by: 'collection-default'})
+
+  return {
+    type: SALE,
     payload: request
   }
 }

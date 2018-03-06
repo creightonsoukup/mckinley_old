@@ -11,7 +11,7 @@ import CollectionHeader from '../components/collection_header'
 import { fetchPerlineCollection, getGoldCollection,
   fetchWildCollection, fetchSteerheadRanchCollection, fetchCart, addToCart,
   fetchCoinCollection, fetchOccidentaleCollection, fetchCollectionContent,
-fetchCameoCollection, fetchEastwoodCollection, searchCollectionByTags } from '../actions/index';
+fetchCameoCollection, fetchEastwoodCollection, searchCollectionByTags, fetchSale } from '../actions/index';
 
 import {
   Collapse,
@@ -129,6 +129,16 @@ class SingleCollection extends Component {
                     collection: collection.split('-').join(" ")
                   })
                 })
+        )
+      case 'sale':
+        return (
+          this.props.fetchSale()
+            .then((data) => {
+              this.setState({
+                products: data.payload,
+                collection: collection
+              })
+            })
         )
       case 'perline-collection':
         return (
@@ -266,41 +276,41 @@ class SingleCollection extends Component {
       const search = _.debounce((value) => {this.searchProducts(value)}, 300)
     return (
     <div className='animated fadeIn'>
-    { window.innerWidth < 576 || this.state.scrollNav ? (
-      <NavbarScroll
-      lineItemCount={this.state.cartLineItems}
-      cartOpen={this.state.cartOpen}
-      cartData={this.state.cart}/>
-    ) : (
-      <Navigation
-      lineItemCount={this.state.cartLineItems}
-      cartOpen={this.state.cartOpen}
-      cartData={this.state.cart}/>
-    )}
-    <Waypoint
-    onEnter={this.navOnEnter}
-    onLeave={this.navOnLeave}/>
-    { window.innerWidth > 576 &&
-      <BannerImage
-        fileName={`${this.props.params.collection}.jpg`}/>
-    }
+      { window.innerWidth < 576 || this.state.scrollNav ? (
+        <NavbarScroll
+          lineItemCount={this.state.cartLineItems}
+          cartOpen={this.state.cartOpen}
+          cartData={this.state.cart}/>
+      ) : (
+        <Navigation
+          lineItemCount={this.state.cartLineItems}
+          cartOpen={this.state.cartOpen}
+          cartData={this.state.cart}/>
+      )}
+      <Waypoint
+        onEnter={this.navOnEnter}
+        onLeave={this.navOnLeave}/>
+      { window.innerWidth > 576 &&
+        <BannerImage
+          fileName={`${this.props.params.collection}.jpg`}/>
+      }
       <div>
         { window.innerWidth > 576 ? (
           <div>
-          <Row noGutters className="collection-title">
-            <h1>{this.state.collection.toUpperCase()}</h1>
-          </Row>
-          <CollectionHeader
-          collectionContent={this.state.collectionContent} />
+            <Row noGutters className="collection-title">
+              <h1>{this.state.collection.toUpperCase()}</h1>
+            </Row>
+            <CollectionHeader
+              collectionContent={this.state.collectionContent} />
           </div>
         ) : (
           <h1 className='mobile-title'>{this.state.collection.toUpperCase()}</h1>
         )}
         <FilterBar
-        showSearchBar={false}
-        sortProducts={this.sortProducts}
-        sortProductTypes={this.sortProductTypes}
-        searchProducts={search} />
+          showSearchBar={false}
+          sortProducts={this.sortProducts}
+          sortProductTypes={this.sortProductTypes}
+          searchProducts={search} />
         <ProductList
           addToCart={this.addToCart}
           products={this.state.viewSortedProducts ? this.state.sortedProducts : this.state.products}/>
@@ -308,7 +318,7 @@ class SingleCollection extends Component {
           homepage={false}
           show={this.state.products.length > 0}/>
       </div>
-    </div >
+      </div >
     )
   }
 }
@@ -320,4 +330,4 @@ function mapStateToProps({collection, collectionContent}) {
 export default connect(mapStateToProps, {fetchPerlineCollection, getGoldCollection,
   fetchWildCollection, fetchSteerheadRanchCollection, fetchCollectionContent, addToCart,
   fetchCoinCollection, fetchOccidentaleCollection, searchCollectionByTags, fetchCart,
-fetchCameoCollection, fetchEastwoodCollection})(SingleCollection)
+fetchCameoCollection, fetchEastwoodCollection, fetchSale})(SingleCollection)
